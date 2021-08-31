@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL2/SDL_image.h>
+#include <vector>
 #include "rect.hpp"
 
 bool pointRectCollison(rectangle& p_rect, int p_x, int p_y)
