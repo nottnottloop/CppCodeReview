@@ -29,7 +29,7 @@ windowApp::windowApp()
 {
     SDL_Init(SDL_INIT_VIDEO);
     window = SDL_CreateWindow("Test Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 400, 400, 0);
-    renderer = SDL_CreateRenderer(window, -1, 0);
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED /*| SDL_RENDERER_PRESENTVSYNC <-- would be nice to have this? :thinking:*/);
 
 
 
