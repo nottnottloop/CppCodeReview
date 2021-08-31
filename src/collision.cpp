@@ -4,7 +4,7 @@
 #include <vector>
 #include "rect.hpp"
 
-bool pointRectCollison(rectangle& p_rect, int p_x, int p_y)
+bool pointRectCollison(Rectangle& p_rect, int p_x, int p_y)
 {
     int x, y, w, h;
     x = p_rect.x;
@@ -22,7 +22,7 @@ bool pointRectCollison(rectangle& p_rect, int p_x, int p_y)
 
 }
 
-bool rectToRectColl(rectangle& rectA, rectangle& rectB)
+bool rectToRectColl(Rectangle& rectA, Rectangle& rectB)
 {
     int x, y, w, h;
     x = rectA.x;
@@ -45,7 +45,7 @@ bool rectToRectColl(rectangle& rectA, rectangle& rectB)
     
 }
 
-bool rectSideColl(rectangle& mainRect, rectangle& checkRect, int side)
+bool rectSideColl(Rectangle& mainRect, Rectangle& checkRect, int side)
 {
     
     int x, y, w, h;
@@ -106,7 +106,7 @@ bool rectSideColl(rectangle& mainRect, rectangle& checkRect, int side)
     return false;
 }
 
-bool rectListColl(rectangle& mainRect, std::vector<rectangle> &list, int side)
+bool rectListColl(Rectangle& mainRect, std::vector<Rectangle> &list, int side)
 {
     for (std::size_t i = 0, max = list.size(); i < max; i++)
     {

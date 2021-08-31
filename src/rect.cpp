@@ -4,8 +4,7 @@
 #include "window.hpp"
 #include "rect.hpp"
 
-
-rectangle::rectangle(float p_x, float p_y, float p_w, float p_h)
+Rectangle::Rectangle(float p_x, float p_y, float p_w, float p_h)
 :x(p_x), y(p_y), w(p_w), h(p_h)
 {
     rect.x = x;
@@ -14,7 +13,7 @@ rectangle::rectangle(float p_x, float p_y, float p_w, float p_h)
     rect.h = h;
 }
 
-bool rectangle::detect(rectangle& p_rect)
+bool Rectangle::detect(Rectangle& p_rect)
 {
     //SDL_GetMouseState(&Xt, &Yt);
 

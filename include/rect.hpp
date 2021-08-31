@@ -2,11 +2,11 @@
 
 #include <SDL2/SDL_image.h>
 
-class rectangle
+class Rectangle
 {
 public:
-    rectangle(float p_x, float p_y, float p_w, float p_h);
-    bool detect(rectangle& p_rect);
+    Rectangle(float p_x, float p_y, float p_w, float p_h);
+    bool detect(Rectangle& p_rect);
     
     float x, y, w, h;
     SDL_Rect rect;

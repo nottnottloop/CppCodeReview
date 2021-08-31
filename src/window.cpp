@@ -26,7 +26,7 @@ windowApp::~windowApp()
     SDL_DestroyRenderer(renderer);
 }
 
-void windowApp::render(rectangle& p_rect)
+void windowApp::render(Rectangle& p_rect)
 {
     SDL_RenderFillRect(renderer, &p_rect.rect);
 }
@@ -43,7 +43,7 @@ void windowApp::clear()
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 }
 
-void windowApp::renderEverything(std::vector<rectangle> &rects)
+void windowApp::renderEverything(std::vector<Rectangle> &rects)
 {
     for (std::size_t i = 0, max = rects.size(); i < max; i++)
     {

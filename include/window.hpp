@@ -12,8 +12,8 @@ private:
 public:
     windowApp();
     ~windowApp();
-    void render(rectangle& p_rect);
-    void renderEverything(std::vector<rectangle> &rects);
+    void render(Rectangle& p_rect);
+    void renderEverything(std::vector<Rectangle> &rects);
     void display();
     void clear();
 

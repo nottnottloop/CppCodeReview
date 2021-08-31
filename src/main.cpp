@@ -16,9 +16,9 @@ int main(int argc, char ** argv){
 
     windowApp testWindow;
 
-    std::vector<rectangle> rects = {rectangle(0, 0, 50, 50),
-                                    rectangle(0, 50, 50, 50),
-                                    rectangle(0, 100, 50, 50),};
+    std::vector<Rectangle> rects = {Rectangle(0, 0, 50, 50),
+                                    Rectangle(0, 50, 50, 50),
+                                    Rectangle(0, 100, 50, 50),};
     
     
     //> BUILD LEVEL
@@ -43,8 +43,7 @@ int main(int argc, char ** argv){
             //std:: cout << x << ", "<< "\n";
             if (tiles[y][x])
             {
-                
-                rects.push_back(rectangle(x * 50, y * 50, 50, 50));
+                rects.push_back(Rectangle(x * 50, y * 50, 50, 50));
             }
             
         }
@@ -52,7 +51,7 @@ int main(int argc, char ** argv){
     
 
     //*Makes main entity
-    rectangle mainEntity(75, 300, 25, 25);
+    Rectangle mainEntity(75, 300, 25, 25);
 
     SDL_SetRenderDrawColor(testWindow.renderer, 0, 0, 255, 255);
     
