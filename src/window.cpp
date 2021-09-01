@@ -13,10 +13,6 @@ windowApp::windowApp()
     SDL_Init(SDL_INIT_VIDEO);
     window = SDL_CreateWindow("Test Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 400, 400, 0);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED /*| SDL_RENDERER_PRESENTVSYNC <-- would be nice to have this? :thinking:*/);
-
-
-
-    SDL_SetRenderDrawColor(renderer, RED);
 }
 
 windowApp::~windowApp()
@@ -37,9 +33,13 @@ void windowApp::display()
 
 void windowApp::clear()
 {
-    SDL_SetRenderDrawColor(renderer, BLACK);
+    colorChange(BLACK);
     SDL_RenderClear(renderer);
-    SDL_SetRenderDrawColor(renderer, GREEN);
+}
+
+void windowApp::colorChange(int r, int g, int b, int a)
+{
+    SDL_SetRenderDrawColor(renderer, r, g, b, a);
 }
 
 void windowApp::renderEverything(std::vector<Rectangle> &rects)

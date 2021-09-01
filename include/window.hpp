@@ -14,6 +14,7 @@ public:
     ~windowApp();
     void render(Rectangle& p_rect);
     void renderEverything(std::vector<Rectangle> &rects);
+    void colorChange(int r, int g, int b, int a);
     void display();
     void clear();
 

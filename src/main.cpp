@@ -180,7 +180,9 @@ int main(int argc, char ** argv){
 
     //>DRAW
     testWindow.clear();
+    testWindow.colorChange(GREEN);
     testWindow.renderEverything(rects);
+    testWindow.colorChange(BLUE);
     testWindow.render(mainEntity);
     testWindow.display();
 
