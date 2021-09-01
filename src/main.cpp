@@ -5,6 +5,7 @@
 #include "window.hpp"
 #include "rect.hpp"
 #include "collision.hpp"
+#include "constants.hpp"
 
 //TODO: 
 //// Make list of objects, and render them all at once
@@ -53,7 +54,7 @@ int main(int argc, char ** argv){
     //*Makes main entity
     Rectangle mainEntity(75, 300, 25, 25);
 
-    SDL_SetRenderDrawColor(testWindow.renderer, 0, 0, 255, 255);
+    SDL_SetRenderDrawColor(testWindow.renderer, BLUE);
     
 
     

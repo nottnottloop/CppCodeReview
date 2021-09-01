@@ -6,6 +6,7 @@
 
 #include "rect.hpp"
 #include "window.hpp"
+#include "constants.hpp"
 
 windowApp::windowApp()
 {
@@ -15,9 +16,7 @@ windowApp::windowApp()
 
 
 
-    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-
-
+    SDL_SetRenderDrawColor(renderer, RED);
 }
 
 windowApp::~windowApp()
@@ -38,9 +37,9 @@ void windowApp::display()
 
 void windowApp::clear()
 {
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_SetRenderDrawColor(renderer, BLACK);
     SDL_RenderClear(renderer);
-    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+    SDL_SetRenderDrawColor(renderer, GREEN);
 }
 
 void windowApp::renderEverything(std::vector<Rectangle> &rects)

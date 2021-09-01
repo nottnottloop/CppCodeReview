@@ -17,10 +17,10 @@ bool Rectangle::detect(Rectangle& p_rect)
 {
     //SDL_GetMouseState(&Xt, &Yt);
 
-    int pX = p_rect.x;
-    int pY = p_rect.y;
+    //int pX = p_rect.x;
+    //int pY = p_rect.y;
 
-    if (pX >= x && pX <= (x + w) && pY >= y && pY <= (y + h))
+    if (p_rect.x >= x && p_rect.x <= (x + w) && p_rect.y >= y && p_rect.y <= (y + h))
     {
         return true;
     } 
