@@ -108,7 +108,8 @@ bool rectSideColl(Rectangle& mainRect, Rectangle& checkRect, int side)
 
 bool rectListColl(Rectangle& mainRect, std::vector<Rectangle> &list, int side)
 {
-    for (std::size_t i = 0, max = list.size(); i < max; i++)
+    //for (std::size_t i = 0, max = list.size(); i < max; i++)
+    for (int i = 0; i < list.size(); i++)
     {
         
         if (rectSideColl(mainRect, list[i], side))

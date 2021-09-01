@@ -23,7 +23,6 @@ bool Rectangle::detect(Rectangle& p_rect)
     if (pX >= x && pX <= (x + w) && pY >= y && pY <= (y + h))
     {
         return true;
-
     } 
     else
         return false;

@@ -72,24 +72,55 @@ int main(int argc, char ** argv){
     float timeInAir = 0.0;
     float speed = 0.05;
 
+    bool groundTouch = false;
+    bool left = false;
+    bool right = false;
+    bool up = false;
+
 
     //> LOOP
     while (!quit)
     {
-        SDL_PollEvent(&event);
-
-        switch (event.type)
-        {
-            case SDL_QUIT:
-                quit = true;
+        //Process the event queue
+        while (SDL_PollEvent(&event)) {
+            switch(event.type)
+            {
+                case SDL_QUIT:
+                    quit = true;
+                    break;
+                case SDL_KEYDOWN:
+                    switch(event.key.keysym.sym) {
+                        case SDLK_UP:
+                            up = true;
+                            break;
+                        case SDLK_LEFT:
+                            left = true;
+                            break;
+                        case SDLK_RIGHT:
+                            right = true;
+                            break;
+                }
                 break;
-        }
-        
+
+                case SDL_KEYUP:
+                    switch(event.key.keysym.sym) {
+                        case SDLK_UP:
+                            up = false;
+                            break;
+                        case SDLK_LEFT:
+                            left = false;
+                            break;
+                        case SDLK_RIGHT:
+                            right = false;
+                            break;
+                    }
+                break;
+            }
+
+            }
 
         //> MOVEMENT
-
-        bool groundTouch = rectListColl(mainEntity, rects, 3);
-
+        groundTouch = rectListColl(mainEntity, rects, 3);
         if (!groundTouch)
         {
             yVel = yVel + (grav * timeInAir) / 2;
@@ -100,29 +131,28 @@ int main(int argc, char ** argv){
             timeInAir = 0.0;
         }
 
-
-
-
-        if (testWindow.state[SDL_SCANCODE_LEFT])
-        {
-            if (!rectListColl(mainEntity, rects, 4)){
-            x += -speed;
-            }
-        }
-        if (testWindow.state[SDL_SCANCODE_RIGHT])
-        {
-            if (!rectListColl(mainEntity, rects, 2)){
-            x += speed;
-            }
-        }
-        if (testWindow.state[SDL_SCANCODE_UP])
+        if (up) 
         {
             if (rectListColl(mainEntity, rects, 3)){
             yVel += -1;
             groundTouch = false;
             }
         }
-        
+
+        if (left)
+        {
+            if (!rectListColl(mainEntity, rects, 4)){
+            x += -speed;
+            }
+        }
+
+        if (right)
+        {
+            if (!rectListColl(mainEntity, rects, 2)){
+            x += speed;
+            }
+        }
+
         //Going down code, saved just in case
         // if (testWindow.state[SDL_SCANCODE_DOWN])
         // {
@@ -154,9 +184,5 @@ int main(int argc, char ** argv){
     testWindow.display();
 
     }
-    
-
-    
-
     return 0;
-}
+        }
