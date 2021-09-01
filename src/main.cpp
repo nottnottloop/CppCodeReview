@@ -36,10 +36,9 @@ int main(int argc, char ** argv){
     {1, 1, 1, 1, 1, 1, 1, 1},
     };
     
-    for (size_t y = 0; y < 8; y++)
+    for (int y = 0; y < 8; ++y)
     {
-        size_t x = 0;
-        for (x = 0; x < 8; x++)
+        for (int x = 0; x < 8; ++x)
         {
             //std:: cout << x << ", "<< "\n";
             if (tiles[y][x])
@@ -65,13 +64,13 @@ int main(int argc, char ** argv){
     bool quit = false;
     SDL_Event event;
     //> MOVEMENT PREP
-    float x = mainEntity.x;
-    float y = mainEntity.y;
+    //float x = mainEntity.x;
+    //float y = mainEntity.y;
 
-    float yVel = 0.0;
-    float grav = 0.01;
-    float timeInAir = 0.0;
-    float speed = 0.05;
+    float yVel = 0.0f;
+    float grav = 0.01f;
+    float timeInAir = 0.0f;
+    float speed = 0.05f;
 
     bool groundTouch = false;
     bool left = false;
@@ -143,14 +142,14 @@ int main(int argc, char ** argv){
         if (left)
         {
             if (!rectListColl(mainEntity, rects, 4)){
-            x += -speed;
+            mainEntity.x += -speed;
             }
         }
 
         if (right)
         {
             if (!rectListColl(mainEntity, rects, 2)){
-            x += speed;
+            mainEntity.x += speed;
             }
         }
 
@@ -171,12 +170,12 @@ int main(int argc, char ** argv){
             yVel = 0;
         }
 
-        y += yVel / 10;
+        mainEntity.y += yVel / 10;
         
-        mainEntity.x = x;
-        mainEntity.y = y;
-        mainEntity.rect.x = x;
-        mainEntity.rect.y = y;
+        //mainEntity.x = x;
+        //mainEntity.y = y;
+        mainEntity.rect.x = mainEntity.x;
+        mainEntity.rect.y = mainEntity.y;
 
     //>DRAW
     testWindow.clear();
